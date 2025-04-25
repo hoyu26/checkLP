@@ -13,8 +13,8 @@ checkLP=(t,m,n)->(
     I=minors(t,X);
     inI=ideal leadTerm I;
     d=dim R-codim inI;
-    theta=ideal(random(1,R));
-    for i from 2 to d do (
+    theta=ideal(0);
+    for i from 1 to d do (
 	Y=random(1,R);
 	theta=ideal(Y)+theta;
 	);
