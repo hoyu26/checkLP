@@ -5,7 +5,7 @@ HF = (I,n) -> (
     for i to n list numcols basis ( m^i/m^(i+1) )
     )
 
---Verify WLP and SLP for R/in(I_t)
+--Verify WLP and SLP for R/in(I_t) and for R/I_t
 checkLP=(t,m,n)->(
     N=m*n;
     R=QQ[x_1..x_N];
