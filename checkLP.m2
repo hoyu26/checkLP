@@ -52,7 +52,7 @@ checkLP=(t,m,n)->(
 	print "HF(R/(I_t+theta+L^s)) is";
 	print  HF(ILsS,a);
 	if cJ==0 then (
-	    print "HF(R/(in(I_t)+theta+L^s)) = is";
+	    print "HF(R/(in(I_t)+theta+L^s)) is";
 	    print  HF(JLsS,a);
 	    if H0!=HF(JLsS,a) then (cJ=c);
 		);
