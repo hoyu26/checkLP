@@ -5,4 +5,4 @@ Inputs:
 t,m,n, three positive integers
 
 Outputs:
-whether the ring QQ[X_1, X_mn]/in(I_t) has the weak/ strong Lefschetz property
+whether QQ[X_1, X_mn]/in(I_t) and QQ[X_1, X_mn]/I_t have the weak/ strong Lefschetz property
