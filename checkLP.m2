@@ -19,45 +19,45 @@ checkLP=(t,m,n)->(
 	theta=ideal(Y)+theta;
 	);
     J=monomialIdeal leadTerm (inI+theta);
-    S=QQ[x_(d+1)..x_N];
-    JS=sub (J,S);
-    a=max degree numerator reduceHilbert hilbertSeries (JS);
-    hf=HF(JS,a);
+    A=QQ[x_(d+1)..x_N];
+    JA=sub (J,A);
+    a=max degree numerator reduceHilbert hilbertSeries (JA);
+    hf=HF(JA,a);
     print "HF(R/(in(I_t)+theta))=HF(R/(I_t+theta)) is";
     print  hf;
     l=random(1,R);
-    c=1;
+    s=1;
     cJ=0;
-    for s from 1 to a do (
+    for v from 1 to a do (
 	print ("s =");
-	print c;
+	print s;
 	use R;
-	thetal=ideal(l)^s+theta;
+	thetal=ideal(l)^v+theta;
 	ILs=monomialIdeal leadTerm (I+thetal);
 	JLs=monomialIdeal leadTerm (inI+thetal);
-	use S;
-	ILsS=sub(ILs,S);
-	JLsS=sub(JLs,S);
+	use A;
+	ILsA=sub(ILs,A);
+	JLsA=sub(JLs,A);
 	H0={1};
-	if s>1 then (
-	    for j from 1 to s-1 do (
+	if v>1 then (
+	    for j from 1 to v-1 do (
 		h=hf#(j);
 		H0=H0|{h};
 		);
 	    );
-	for i from 0 to a-s do (
+	for i from 0 to a-v do (
 	    h=max{0,hf#(i+s)-hf#i};
 	    H0=H0|{h};
 	    );
 	print "HF(R/(I_t+theta+L^s)) is";
-	print  HF(ILsS,a);
+	print  HF(ILsA,a);
 	if cJ==0 then (
 	    print "HF(R/(in(I_t)+theta+L^s)) is";
-	    print  HF(JLsS,a);
-	    if H0!=HF(JLsS,a) then (cJ=c);
+	    print  HF(JLsA,a);
+	    if H0!=HF(JLsA,a) then (cJ=s);
 		);
-	if H0==HF(ILsS,a) then c=c+1 else (
-	    if c!=1 then (
+	if H0==HF(ILsA,a) then s=s+1 else (
+	    if s!=1 then (
 		if cJ==1 then (
 		    return "R/in(I_t) fails the WLP, R/I_t has the WLP but fails the SLP"
 		    ) else (
@@ -68,7 +68,7 @@ checkLP=(t,m,n)->(
 		);
 	    );
 	);
-    if a==(c-1) then (
+    if a==(s-1) then (
 	if cJ==0 then (
 	    return "Both R/in(I_t) and R/I_t have the SLP"
 	    ) else (
