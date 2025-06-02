@@ -23,14 +23,10 @@ checkLP=(t,m,n)->(
     JA=sub (J,A);
     a=max degree numerator reduceHilbert hilbertSeries (JA);
     hf=HF(JA,a);
-    print "HF(R/(in(I_t)+theta))=HF(R/(I_t+theta)) is";
-    print  hf;
     l=random(1,R);
     s=1;
     cJ=0;
     for v from 1 to a do (
-	print ("s =");
-	print s;
 	use R;
 	thetal=ideal(l)^v+theta;
 	ILs=monomialIdeal leadTerm (I+thetal);
@@ -49,11 +45,7 @@ checkLP=(t,m,n)->(
 	    h=max{0,hf#(i+s)-hf#i};
 	    H0=H0|{h};
 	    );
-	print "HF(R/(I_t+theta+L^s)) is";
-	print  HF(ILsA,a);
 	if cJ==0 then (
-	    print "HF(R/(in(I_t)+theta+L^s)) is";
-	    print  HF(JLsA,a);
 	    if H0!=HF(JLsA,a) then (cJ=s);
 		);
 	if H0==HF(ILsA,a) then s=s+1 else (
