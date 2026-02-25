@@ -34,7 +34,7 @@ for v from 1 to a do (
     if H0!=H1 then break;
     s=v; 
     );
-if s==0 then print "the correct linear form is not a WLE for this ideal." else (
+if s==0 then print "The chosen linear form is not a LE for this ideal." else (
     if  s==a then print "This ideal has the SLP." else print "This ideal has the WLP.";
     );
 )
